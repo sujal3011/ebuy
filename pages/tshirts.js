@@ -10,7 +10,7 @@ const tshirts = () => {
                     <div className="flex flex-wrap justify-center items-center m-4">
 
                     <div className="lg:w-1/5 md:w-[47%] p-4 w-full border rounded shadow-lg mx-2 my-2 h-[66vh] md:h-[75vh]">
-                        <Link href={'/'}>
+                        <Link href={'/products/this-is-a-slug'}>
                             <div className="block relative h-[47vh] md:h-[56vh] rounded overflow-hidden ">
                                 <Image alt="ecommerce" className="object-cover object-top w-full h-full block" src="/images/men-tshirt.jpg" fill={true} />
                             </div>
@@ -20,10 +20,10 @@ const tshirts = () => {
                                 <p className="mt-1">₹499.00</p>
                             </div>
                         </Link>
-                        </div>
+                    </div>
 
-                        <div className="lg:w-1/5 md:w-[47%] p-4 w-full border rounded shadow-lg mx-2 my-2 h-[66vh] md:h-[75vh]">
-                        <Link href={'/'}>
+                    <div className="lg:w-1/5 md:w-[47%] p-4 w-full border rounded shadow-lg mx-2 my-2 h-[66vh] md:h-[75vh]">
+                        <Link href={'/products/this-is-a-slug'}>
                             <div className="block relative h-[47vh] md:h-[56vh] rounded overflow-hidden ">
                                 <Image alt="ecommerce" className="object-cover object-top w-full h-full block" src="/images/men-tshirt.jpg" fill={true} />
                             </div>
@@ -33,14 +33,7 @@ const tshirts = () => {
                                 <p className="mt-1">₹499.00</p>
                             </div>
                         </Link>
-                        </div>
-
-                      
-                      
-                       
-
-                        
-
+                    </div>
 
                     </div>
                 </div>
