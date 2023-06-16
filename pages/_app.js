@@ -6,13 +6,14 @@ import { useEffect, useState } from 'react'
 export default function App({ Component, pageProps }) {
 
   const [cart, setCart] = useState({});
-  const [cartPrice, setCartPrice] = useState();
+  const [cartPrice, setCartPrice] = useState(0);
 
   useEffect(()=>{
     try {
 
       if(localStorage.getItem("cart")){
         setCart(JSON.parse(localStorage.getItem("cart")));
+        setCartPrice(JSON.parse(localStorage.getItem("total_price")));
       }
       
     } catch (error) {
@@ -30,6 +31,8 @@ export default function App({ Component, pageProps }) {
       totalPrice+=cart[keys[i]].subtotal;
     }
     setCartPrice(totalPrice);
+    localStorage.setItem("total_price",JSON.stringify(totalPrice));
+
 
   }
 
@@ -85,9 +88,10 @@ export default function App({ Component, pageProps }) {
 
   }
 
-  return <>
+  return <div className='overflow-x-hidden'>
+  
   <Navbar cart={cart} addToCart={addToCart} reduceItemQuantityFromCart={reduceItemQuantityFromCart} removeFromCart={removeFromCart} clearCart={clearCart} cartPrice={cartPrice}/>
   <Component cart={cart} addToCart={addToCart} reduceItemQuantityFromCart={reduceItemQuantityFromCart} removeFromCart={removeFromCart} clearCart={clearCart} cartPrice={cartPrice} {...pageProps} />
   <Footer/>
-  </>
+  </div>
 }

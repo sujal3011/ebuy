@@ -25,7 +25,7 @@ const Navbar = ({cart,addToCart,removeFromCart,clearCart,cartPrice,reduceItemQua
     return (
             <header className="bg-cyan-900 text-white body-font sticky top-0 z-20">
                 <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-                    <Link href={'/'} className="flex title-font font-medium items-center text-cyan-900 mb-4 md:mb-0">
+                    <Link href={'/'} className="flex title-font font-medium items-center text-cyan-900">
 
                         <span className="ml-3 text-xl text-white">EBuy</span>
                         
@@ -37,7 +37,7 @@ const Navbar = ({cart,addToCart,removeFromCart,clearCart,cartPrice,reduceItemQua
                         <Link className="mr-5 hover:text-cyan-100" href={'/watches'}>Watches</Link>
                     </nav>
 
-                    <div className="inline-flex items-center cursor: pointer py-1 px-3 focus:outline-none text-base mt-4 md:mt-0 z-0">
+                    <div className="inline-flex items-center cursor: pointer py-1 px-3 focus:outline-none text-base mt-2 md:mt-0 z-0">
                         <BsFillCartFill className='text-xl mr-3 cursor-pointer text-cyan-100' onClick={toggleCart} />
                         <button className="inline-flex items-center bg-cyan-100 text-cyan-900 border-0 py-1 px-3 focus:outline-none hover:bg-cyan-200 rounded text-base mt-4  md:mt-0">Login
                         </button>
@@ -95,7 +95,7 @@ const Navbar = ({cart,addToCart,removeFromCart,clearCart,cartPrice,reduceItemQua
                         </div>
 
                         <div className="flex items-center justify-center">
-                            <a href="/" className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 mx-2">Checkout</a>
+                            <Link href={"/checkout"} className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 mx-2"  onClick={toggleCart}>Checkout</Link>
                             <button className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 mx-2" onClick={clearCart}>Clear Cart</button>
                         </div>
                     </div>
