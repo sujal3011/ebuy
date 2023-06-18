@@ -1,8 +1,6 @@
 import React from 'react'
-import { BsFillCartFill } from 'react-icons/bs';
-import { AiOutlineCloseCircle, AiFillCloseCircle, AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
+import {  AiFillCloseCircle, AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
 import Link from 'next/link'
-import { useRef } from 'react';
 
 const Checkout = ({cart,addToCart,removeFromCart,cartPrice,reduceItemQuantityFromCart}) => {
   return (
@@ -22,13 +20,13 @@ const Checkout = ({cart,addToCart,removeFromCart,cartPrice,reduceItemQuantityFro
                             <label for="firstName" className="block mb-3 text-sm font-semibold text-teal-500">First
                                 Name</label>
                             <input name="firstName" type="text" placeholder="First Name"
-                                className="w-full px-4 py-3 text-sm border border-teal-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"/>
+                                className="w-full px-4 py-3 text-sm border border-teal-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-teal-600"/>
                         </div>
                         <div className="w-full lg:w-1/2 ">
                             <label for="firstName" className="block mb-3 text-sm font-semibold text-teal-500">Last
                                 Name</label>
                             <input name="Last Name" type="text" placeholder="Last Name"
-                                className="w-full px-4 py-3 text-sm border border-teal-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"/>
+                                className="w-full px-4 py-3 text-sm border border-teal-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-teal-600"/>
                         </div>
                     </div>
                     <div className="mt-4">
@@ -36,7 +34,7 @@ const Checkout = ({cart,addToCart,removeFromCart,cartPrice,reduceItemQuantityFro
                             <label for="Email"
                                 className="block mb-3 text-sm font-semibold text-teal-500">Email</label>
                             <input name="Last Name" type="text" placeholder="Email"
-                                className="w-full px-4 py-3 text-sm border border-teal-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"/>
+                                className="w-full px-4 py-3 text-sm border border-teal-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-teal-600"/>
                         </div>
                     </div>
                     <div className="mt-4">
@@ -44,7 +42,7 @@ const Checkout = ({cart,addToCart,removeFromCart,cartPrice,reduceItemQuantityFro
                             <label for="Address"
                                 className="block mb-3 text-sm font-semibold text-teal-500">Address</label>
                             <textarea
-                                className="w-full px-4 py-3 text-xs border border-teal-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                className="w-full px-4 py-3 text-xs border border-teal-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-teal-600"
                                 name="Address" cols="20" rows="4" placeholder="Address"></textarea>
                         </div>
                     </div>
@@ -53,13 +51,13 @@ const Checkout = ({cart,addToCart,removeFromCart,cartPrice,reduceItemQuantityFro
                             <label for="city"
                                 className="block mb-3 text-sm font-semibold text-teal-500">City</label>
                             <input name="city" type="text" placeholder="City"
-                                className="w-full px-4 py-3 text-sm border border-teal-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"/>
+                                className="w-full px-4 py-3 text-sm border border-teal-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-teal-600"/>
                         </div>
                         <div className="w-full lg:w-1/2 ">
                             <label for="postcode" className="block mb-3 text-sm font-semibold text-teal-500">
                                 Postcode</label>
                             <input name="postcode" type="text" placeholder="Post Code"
-                                className="w-full px-4 py-3 text-sm border border-teal-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"/>
+                                className="w-full px-4 py-3 text-sm border border-teal-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-teal-600"/>
                         </div>
                     </div>
                     <div className="flex items-center mt-4">
@@ -71,12 +69,12 @@ const Checkout = ({cart,addToCart,removeFromCart,cartPrice,reduceItemQuantityFro
                     <div className="relative pt-3 xl:pt-6"><label for="note"
                             className="block mb-3 text-sm font-semibold text-teal-500"> Notes
                             (Optional)</label><textarea name="note"
-                            className="flex items-center w-full px-4 py-3 text-sm border border-teal-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-600"
+                            className="flex items-center w-full px-4 py-3 text-sm border border-teal-300 rounded focus:outline-none focus:ring-1 focus:ring-teal-600"
                             rows="4" placeholder="Notes for delivery"></textarea>
                     </div>
                     <div className="mt-4">
                         <button
-                            className="w-full px-6 py-2 text-blue-200 bg-blue-600 hover:bg-blue-900">Process</button>
+                            className="w-full px-6 py-2 text-white bg-teal-600 hover:bg-teal-900">Proceed to Pay</button>
                     </div>
                 </div>
             </form>

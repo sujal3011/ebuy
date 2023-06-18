@@ -1,6 +1,7 @@
 import React from 'react'
 import { BsFillCartFill } from 'react-icons/bs';
 import { AiOutlineCloseCircle, AiFillCloseCircle, AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
+import { CgProfile } from 'react-icons/cg';
 import Link from 'next/link'
 import { useRef } from 'react';
 
@@ -39,8 +40,7 @@ const Navbar = ({cart,addToCart,removeFromCart,clearCart,cartPrice,reduceItemQua
 
                     <div className="inline-flex items-center cursor: pointer py-1 px-3 focus:outline-none text-base mt-2 md:mt-0 z-0">
                         <BsFillCartFill className='text-xl mr-3 cursor-pointer text-cyan-100' onClick={toggleCart} />
-                        <button className="inline-flex items-center bg-cyan-100 text-cyan-900 border-0 py-1 px-3 focus:outline-none hover:bg-cyan-200 rounded text-base mt-4  md:mt-0">Login
-                        </button>
+                        <Link href={"/login"}><CgProfile className="cursor-pointer text-2xl"/></Link>
                     </div >
                     
                     <div ref={ref} className='flex flex-col items-center justify-start sideCart absolute top-0 right-0 w-[100vw] lg:w-[50vw] h-screen bg-cyan-100 z-10 text-2xl transition-transform translate-x-full'>
@@ -95,8 +95,8 @@ const Navbar = ({cart,addToCart,removeFromCart,clearCart,cartPrice,reduceItemQua
                         </div>
 
                         <div className="flex items-center justify-center">
-                            <Link href={"/checkout"} className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 mx-2"  onClick={toggleCart}>Checkout</Link>
-                            <button className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 mx-2" onClick={clearCart}>Clear Cart</button>
+                            <Link href={"/checkout"} className="flex items-center justify-center rounded-md border border-transparent bg-teal-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-teal-700 mx-2"  onClick={toggleCart}>Checkout</Link>
+                            <button className="flex items-center justify-center rounded-md border border-transparent bg-teal-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-teal-700 mx-2" onClick={clearCart}>Clear Cart</button>
                         </div>
                     </div>
                 </div>
