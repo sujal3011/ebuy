@@ -27,6 +27,7 @@ const Navbar = ({ usertoken, logout, cart, addToCart, removeFromCart, clearCart,
 
 
     return (
+
         <header className="bg-cyan-900 text-white body-font sticky top-0 z-20">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
                 <Link href={'/'} className="flex title-font font-medium items-center text-cyan-900">
@@ -51,16 +52,16 @@ const Navbar = ({ usertoken, logout, cart, addToCart, removeFromCart, clearCart,
                         (usertoken) && <Link href={"/"}><CgProfile className="cursor-pointer text-2xl" /></Link>
                     }
                     {
-                        (!usertoken) && <Link href={"/login"}><button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Login</button></Link>
+                        (!usertoken) && <Link href={"/login"}><button className="flex mx-2 text-white bg-cyan-500 border-0 py-2 px-6 focus:outline-none hover:bg-cyan-600 rounded">Login</button></Link>
                     }
 
                     {usertoken && dropdown && <div id="dropdown" className="z-10 absolute right-11 top-12 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                         <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                             <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Account</a>
+                                <Link href={"/account"} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Account</Link>
                             </li>
                             <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Orders</a>
+                                <Link href={"/orders"} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Orders</Link>
                             </li>
                           
                             <li>
@@ -72,7 +73,7 @@ const Navbar = ({ usertoken, logout, cart, addToCart, removeFromCart, clearCart,
 
 
                 </div >
-                
+
                 </div>
 
 

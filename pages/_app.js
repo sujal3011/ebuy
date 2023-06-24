@@ -3,16 +3,25 @@ import Navbar from '@/components/Navbar'
 import '@/styles/globals.css'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import LoadingBar from 'react-top-loading-bar'
 
 export default function App({ Component, pageProps }) {
 
   const [cart, setCart] = useState({});
   const [cartPrice, setCartPrice] = useState(0);
   const [usertoken, setUsertoken] = useState(null);
+  const [progress, setProgress] = useState(0);
+
 
   const router = useRouter()
 
   useEffect(()=>{
+    router.events.on('routeChangeStart',()=>{
+      setProgress(40);
+    })
+    router.events.on('routeChangeComplete',()=>{
+      setProgress(100);
+    })
     try {
       console.log(router.query);
       console.log("Inside useeffect");
@@ -109,7 +118,8 @@ export default function App({ Component, pageProps }) {
   }
 
   return <div className='overflow-x-hidden'>
-  
+
+  <LoadingBar color='#dc2626' progress={progress} waitingTime={500} loaderSpeed={300} height={4} onLoaderFinished={() => setProgress(0)}/>
   <Navbar cart={cart} usertoken={usertoken} logout={logout} addToCart={addToCart} reduceItemQuantityFromCart={reduceItemQuantityFromCart} removeFromCart={removeFromCart} clearCart={clearCart} cartPrice={cartPrice}/>
   <Component cart={cart} usertoken={usertoken} logout={logout} addToCart={addToCart} reduceItemQuantityFromCart={reduceItemQuantityFromCart} removeFromCart={removeFromCart} clearCart={clearCart} cartPrice={cartPrice} {...pageProps} />
   <Footer/>
