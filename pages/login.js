@@ -29,7 +29,7 @@ const Login = () => {
       setCredentials({ email: "", password: "" });
       console.log(json.success);
       if(json.success){
-        console.log("Redirect");
+        localStorage.setItem("token",json.token);
         router.push('http://localhost:3000')
       }
 

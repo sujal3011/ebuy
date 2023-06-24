@@ -2,18 +2,30 @@ import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import '@/styles/globals.css'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function App({ Component, pageProps }) {
 
   const [cart, setCart] = useState({});
   const [cartPrice, setCartPrice] = useState(0);
+  const [usertoken, setUsertoken] = useState(null);
+
+  const router = useRouter()
 
   useEffect(()=>{
     try {
+      console.log(router.query);
+      console.log("Inside useeffect");
 
       if(localStorage.getItem("cart")){
         setCart(JSON.parse(localStorage.getItem("cart")));
         setCartPrice(JSON.parse(localStorage.getItem("total_price")));
+      }
+
+
+      const token=localStorage.getItem("token");
+      if(token){
+        setUsertoken(token);
       }
       
     } catch (error) {
@@ -21,7 +33,7 @@ export default function App({ Component, pageProps }) {
       localStorage.clear();
     } 
 
-  },[]);
+  },[router.query]);
 
   const saveCart=(newCart)=>{
     localStorage.setItem("cart",JSON.stringify(newCart));
@@ -58,7 +70,6 @@ export default function App({ Component, pageProps }) {
     setCartPrice(0);
     localStorage.removeItem("total_price");
     localStorage.removeItem("cart");
-    //saveCart({});
   }
 
   const reduceItemQuantityFromCart=(itemCode,qty)=>{
@@ -91,10 +102,16 @@ export default function App({ Component, pageProps }) {
 
   }
 
+  const logout=()=>{
+    localStorage.removeItem("token");
+    setUsertoken(null);
+
+  }
+
   return <div className='overflow-x-hidden'>
   
-  <Navbar cart={cart} addToCart={addToCart} reduceItemQuantityFromCart={reduceItemQuantityFromCart} removeFromCart={removeFromCart} clearCart={clearCart} cartPrice={cartPrice}/>
-  <Component cart={cart} addToCart={addToCart} reduceItemQuantityFromCart={reduceItemQuantityFromCart} removeFromCart={removeFromCart} clearCart={clearCart} cartPrice={cartPrice} {...pageProps} />
+  <Navbar cart={cart} usertoken={usertoken} logout={logout} addToCart={addToCart} reduceItemQuantityFromCart={reduceItemQuantityFromCart} removeFromCart={removeFromCart} clearCart={clearCart} cartPrice={cartPrice}/>
+  <Component cart={cart} usertoken={usertoken} logout={logout} addToCart={addToCart} reduceItemQuantityFromCart={reduceItemQuantityFromCart} removeFromCart={removeFromCart} clearCart={clearCart} cartPrice={cartPrice} {...pageProps} />
   <Footer/>
   </div>
 }

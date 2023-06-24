@@ -32,6 +32,7 @@ const SignUp = () => {
       console.log(json);
       setCredentials({ name: "", email: "", password: "", confirm_password: "" });
       if(json.success===true){
+        localStorage.setItem("token",json.token);
         router.push('http://localhost:3000')
       }
 
