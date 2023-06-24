@@ -17,7 +17,7 @@ const tshirts = ({ products }) => {
                                     <div key={products[key]._id} className="lg:w-1/5 md:w-[47%] p-4 w-full border rounded shadow-lg mx-2 my-2 h-[66vh] md:h-[90vh]">
                                         <Link href={`/products/${products[key].slug}`}>
                                             <div className="block relative h-[47vh] md:h-[56vh] rounded overflow-hidden ">
-                                                <Image alt="ecommerce" className="object-cover object-top w-full h-full block" src="/images/men-tshirt.jpg" fill={true} />
+                                                <img alt="ecommerce" className="object-cover object-top w-full h-full block" src={products[key].image} fill={true} />
                                             </div>
                                             <div className="mt-4">
                                                 <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">{products[key].category}</h3>
@@ -35,7 +35,7 @@ const tshirts = ({ products }) => {
                                                     {
                                                         products[key].color.map((color)=>{
                                                             return (
-                                                                <div key={color} className={`rounded-full mr-1 bg-${color}-500 w-6 h-6`}></div>
+                                                                <div key={color} className={`rounded-full mr-1 w-6 h-6`} style={{backgroundColor: color}}></div>
                                                             )
                                                         })
                                                     }

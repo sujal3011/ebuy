@@ -35,7 +35,7 @@ const Navbar = ({cart,addToCart,removeFromCart,clearCart,cartPrice,reduceItemQua
                         <Link className="mr-5 hover:text-cyan-100" href={'/'}>Home</Link>
                         <Link className="mr-5 hover:text-cyan-100" href={'/tshirts'}>Tshirts</Link>
                         <Link className="mr-5 hover:text-cyan-100" href={'/sneakers'}>Sneakers</Link>
-                        <Link className="mr-5 hover:text-cyan-100" href={'/watches'}>Watches</Link>
+                        <Link className="mr-5 hover:text-cyan-100" href={'/jeans'}>Jeans</Link>
                     </nav>
 
                     <div className="inline-flex items-center cursor: pointer py-1 px-3 focus:outline-none text-base mt-2 md:mt-0 z-0">
@@ -43,7 +43,7 @@ const Navbar = ({cart,addToCart,removeFromCart,clearCart,cartPrice,reduceItemQua
                         <Link href={"/login"}><CgProfile className="cursor-pointer text-2xl"/></Link>
                     </div >
                     
-                    <div ref={ref} className='flex flex-col items-center justify-start sideCart absolute top-0 right-0 w-[100vw] lg:w-[50vw] h-screen bg-cyan-100 z-10 text-2xl transition-transform translate-x-full'>
+                    <div ref={ref} className='flex overflow-y-scroll flex-col items-center justify-start sideCart absolute top-0 right-0 w-[100vw] lg:w-[50vw] h-screen bg-cyan-100 z-10 text-2xl transition-transform translate-x-full'>
 
                         <h2 className='text-4xl font-bold text-cyan-700 italic mt-4 '>Shopping Cart</h2>
                         <AiOutlineCloseCircle className='absolute top-5 right-5 cursor-pointer text-cyan-900' onClick={toggleCart} />
@@ -66,7 +66,7 @@ const Navbar = ({cart,addToCart,removeFromCart,clearCart,cartPrice,reduceItemQua
 
                                             <div className='flex items-center justify-start w-[40%] h-full border'>
                                                 <AiFillCloseCircle className='cursor-pointer text-lg ml-2' onClick={()=>{removeFromCart(itemCode)}} />
-                                                <span className='text-lg ml-4'>{cart[itemCode].name}</span>
+                                                <span className='text-lg ml-4'>{cart[itemCode].name}/{cart[itemCode].variant}/{cart[itemCode].size}</span>
                                             </div>
 
                                             <div className='flex items-center justify-center w-[20%] h-full border'>

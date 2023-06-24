@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const sneakers = ({ products }) => {
+const jeans = ({ products }) => {
     console.log(products);
     return (
         <div>
@@ -25,11 +25,10 @@ const sneakers = ({ products }) => {
                                                 <p className="mt-1">₹{products[key].price}</p>
 
                                                 <div className='w-full flex items-center justify-start mt-1'>
-                                                    { products[key].size.includes('6') &&  <span className='border p-2 mr-1'>6</span>}
-                                                    { products[key].size.includes('7') &&  <span className='border p-2 mr-1'>7</span>}
-                                                    { products[key].size.includes('8') &&  <span className='border p-2 mx-1'>8</span>}
-                                                    { products[key].size.includes('9') &&  <span className='border p-2 mr-1'>9</span>}
-                                                    { products[key].size.includes('10') &&  <span className='border p-2 mr-1'>10</span>}
+                                                    { products[key].size.includes('S') &&  <span className='border p-2 mr-1'>S</span>}
+                                                    { products[key].size.includes('M') &&  <span className='border p-2 mr-1'>M</span>}
+                                                    { products[key].size.includes('L') &&  <span className='border p-2 mx-1'>L</span>}
+                                                    { products[key].size.includes('XL') &&  <span className='border p-2 mr-1'>XL</span>}
                                                 </div>
 
                                                 <div className='w-full flex items-center justify-start mt-1'>
@@ -56,7 +55,7 @@ const sneakers = ({ products }) => {
 
 export async function getServerSideProps(context) {
 
-    const res = await fetch(`http://localhost:3000/api/products/getproducts?category=sneaker`);
+    const res = await fetch(`http://localhost:3000/api/products/getproducts?category=jeans`);
     const json = await res.json();
     const all_products = json.all_products;
     let products={};
@@ -84,4 +83,4 @@ export async function getServerSideProps(context) {
     }
 }
 
-export default sneakers
+export default jeans

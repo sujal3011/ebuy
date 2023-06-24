@@ -55,7 +55,10 @@ export default function App({ Component, pageProps }) {
 
   const clearCart=()=>{
     setCart({});
-    saveCart({});
+    setCartPrice(0);
+    localStorage.removeItem("total_price");
+    localStorage.removeItem("cart");
+    //saveCart({});
   }
 
   const reduceItemQuantityFromCart=(itemCode,qty)=>{
